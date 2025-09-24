@@ -86,3 +86,4 @@ jobs:
           echo "Add deployment commands here, e.g.:"
           echo "scp -r ./js/dist user@server:/var/www/app"
           echo "ssh user@server 'pm2 restart app'"
+          
