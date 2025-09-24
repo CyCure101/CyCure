@@ -19,7 +19,8 @@ CREATE TABLE employees (
 
 CREATE TABLE questions (
     questionsid INT AUTO_INCREMENT PRIMARY KEY,
-    question TEXT NOT NULL
+    question TEXT NOT NULL,
+    questionType INT
 );
 
 

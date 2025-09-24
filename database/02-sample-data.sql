@@ -15,10 +15,10 @@ INSERT INTO employees (userid) VALUES
 (4); -- student2
 
 -- Insert sample questions
-INSERT INTO questions (question) VALUES
-('What is cybersecurity?'),
-('What is a firewall?'),
-('What is encryption?'),
+INSERT INTO questions (question, questionType) VALUES
+('What is cybersecurity?', 1), #1 = IT frågor
+('What is a firewall?', 2), #2 = Säkerhetsfrågor
+('What is encryption?', 3), #3 = kundtjänstfrågor
 ('What is phishing?'),
 ('What is malware?');
 
