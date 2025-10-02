@@ -18,9 +18,7 @@ INSERT INTO employees (userid) VALUES
 INSERT INTO questions (question, questionType) VALUES
 ('What is cybersecurity?', 1), #1 = IT frågor
 ('What is a firewall?', 2), #2 = Säkerhetsfrågor
-('What is encryption?', 3), #3 = kundtjänstfrågor
-('What is phishing?'),
-('What is malware?');
+('What is encryption?', 3); #3 = kundtjänstfrågor
 
 -- Insert sample answers for each question
 -- Question 1: What is cybersecurity?
@@ -44,16 +42,3 @@ INSERT INTO answers (questionsid, answer) VALUES
 (3, 'Compressing files'),
 (3, 'Backing up data');
 
--- Question 4: What is phishing?
-INSERT INTO answers (questionsid, answer) VALUES
-(4, 'Fraudulent email attacks'),
-(4, 'Fishing for data'),
-(4, 'Network scanning'),
-(4, 'Password cracking');
-
--- Question 5: What is malware?
-INSERT INTO answers (questionsid, answer) VALUES
-(5, 'Malicious software'),
-(5, 'Good software'),
-(5, 'Operating system'),
-(5, 'Web browser');
