@@ -1,47 +1,103 @@
+<script setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+
+// Computed property to determine if the header should be visible.
+// It will be false only when the current path is exactly '/login'.
+const showHeader = computed(() => route.path !== '/login');
+</script>
+
 <template>
-  <div>
-    <header>
-      <img alt="CyCure Logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-      <h1>CyCure101</h1>
+  <div id="app">
+    <!-- 1. The Header component, now conditionally rendered -->
+    <header class="app-header" v-if="showHeader">
+      <!-- Left -->
+      <div class="header-left">
+        <img alt="CyCure Logo" class="logo" src="../public/Cyber-Security-Logo-PNG.png" />
+        <h1>CyCure101</h1>
+      </div>
+
+      <!-- Right -->
+      <div class="header-right">
+        <router-link to="/results">Mina resultat</router-link>
+        <span>Välkommen tillbaka, User</span>
+        <router-link to="/login">Logga ut</router-link>
+      </div>
     </header>
 
-    <nav>
-      <router-link to="/login">Login</router-link> |
-      <router-link to="/main">Main</router-link> |
-      <router-link to="/quiz">Quiz</router-link>
-    </nav>
-
-    <main>
+    <!-- 2. THE CONTENT AREA (This is where main.vue, quiz.vue, etc., will render) -->
+    <main class="content-wrapper">
       <router-view />
     </main>
   </div>
 </template>
 
+
 <style scoped>
-header {
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 0.5rem 1rem;
+  color: #000000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* left */
+.header-left {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 0.5rem;
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
+  width: 32px;
+  height: 32px;
 }
 
-nav {
-  margin-bottom: 1rem;
-}
-
-nav a {
-  margin: 0 0.5rem;
+/* center nav */
+.header-center {
+  display: flex;
+  gap: 1rem;
   text-decoration: none;
+  color: #000000;
+  font-weight: bold;
+}
+
+.header-center a {
+  text-decoration: none;
+  color: #42b883;
+  font-weight: bold;
+}
+
+.header-center a.router-link-exact-active {
   color: #42b883;
 }
 
-nav a.router-link-exact-active {
+/* right */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-right a {
+  text-decoration: none;
+  color: #000000;
   font-weight: bold;
-  color: #35495e;
+}
+
+.user-circle {
+  width: 32px;
+  height: 32px;
+  background-color: #00aaff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 </style>
