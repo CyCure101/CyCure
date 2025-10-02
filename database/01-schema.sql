@@ -1,4 +1,5 @@
-
+-- Users table now includes both regular users and admins via userlevel
+-- userlevel: 1 = user, 2 = admin (extend as needed)
 CREATE TABLE users (
     userid INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
@@ -6,16 +7,7 @@ CREATE TABLE users (
     userlevel INT NOT NULL
 );
 
-
-CREATE TABLE employees (
-    employeeid INT AUTO_INCREMENT PRIMARY KEY,
-    userid INT NOT NULL,
-    
-    CONSTRAINT fk_employee_user 
-        FOREIGN KEY (userid) 
-        REFERENCES users(userid) 
-        ON DELETE CASCADE
-);
+-- Removed separate admin table; use users.userlevel to distinguish roles
 
 CREATE TABLE questions (
     questionsid INT AUTO_INCREMENT PRIMARY KEY,
@@ -23,14 +15,13 @@ CREATE TABLE questions (
     questionType INT
 );
 
-
 CREATE TABLE answers (
     answersid INT AUTO_INCREMENT PRIMARY KEY,
-    questionsid INT NOT NULL,
+    categoryid INT NOT NULL,
     answer TEXT NOT NULL,
     
     CONSTRAINT fk_answer_question 
-        FOREIGN KEY (questionsid) 
+        FOREIGN KEY (categoryid)
         REFERENCES questions(questionsid) 
         ON DELETE CASCADE
 );
