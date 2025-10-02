@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Login from '../../../CyCure/frontend/src/views/login.vue'
-import Main from '../../../CyCure/frontend/src/views/main.vue'
-import Quiz from '../../../CyCure/frontend/src/views/quiz.vue'
+import Login from './views/login.vue'
+import Main from './views/main.vue'
+import Quiz from './views/quiz.vue'
 
 const routes = [
     { path: '/login', component: Login },
