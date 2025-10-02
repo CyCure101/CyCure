@@ -26,3 +26,5 @@ npm install cors
 
 Kör koden i ett terminalfönster i samma katalog
 node app.js
+
+node --watch app.js
