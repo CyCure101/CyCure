@@ -16,7 +16,9 @@ const showHeader = computed(() => route.path !== '/login');
       <!-- Left -->
       <div class="header-left">
         <img alt="CyCure Logo" class="logo" src="../public/Cyber-Security-Logo-PNG.png" />
-        <h1>CyCure101</h1>
+        <a href="/main" class="no-link-style">
+        <h1 >CyCure101</h1>
+        </a>
       </div>
 
       <!-- Right -->
@@ -27,13 +29,11 @@ const showHeader = computed(() => route.path !== '/login');
       </div>
     </header>
 
-    <!-- 2. THE CONTENT AREA (This is where main.vue, quiz.vue, etc., will render) -->
     <main class="content-wrapper">
       <router-view />
     </main>
   </div>
 </template>
-
 
 <style scoped>
 .app-header {
@@ -44,6 +44,12 @@ const showHeader = computed(() => route.path !== '/login');
   padding: 0.5rem 1rem;
   color: #000000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.no-link-style {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 /* left */

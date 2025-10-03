@@ -9,11 +9,18 @@ const username = ref('');
 const password = ref('');
 
 function login() {
-  // Validate credentials here when working with database.
+  const usernameInput = username.value;
+  const passwordInput = password.value;
 
-  // Simulate a successful login for the moment
-  console.log(`Attempting login for user: ${username.value}`);
-  router.push('/main');
+  if (usernameInput === "admin" && passwordInput === "admin123") {
+    console.log("Admin login successful");
+    router.push('/admin'); // redirect admins
+  } else if (usernameInput === "user" && passwordInput === "user123") {
+    console.log("User login successful");
+    router.push('/main'); // redirect normal users
+  } else {
+    alert("Invalid credentials");
+  }
 }
 </script>
 
